@@ -10,6 +10,6 @@
 4. **Granular Controls, 1-Click Full Deletion & Account Deletion Triggers:**
    You can clear individual poll votes (`Clear Vote`), clear price predictions (`Clear Guess`), delete individual Scorecard rows, or permanently erase 100% of stored user-keyed data (Scorecard, Watchlist, Leaderboard opt-in, votes, predictions, DRHP follows, reports, missing-IPO submissions, and cached Live Chat copies) via **Delete All My App Data** under **FAQ -> Terms, Privacy & Delete My Data**. Note that public Reddit comments posted via Live Chat stay on Reddit natively (open any comment on Reddit to edit or delete it there, and `onCommentUpdate` / `onCommentDelete` syncs the change automatically).
 5. **Zero External Transmission of Reddit User Data:**
-   Zero Reddit user IDs, usernames, votes, predictions, or scorecard entries are ever sent outside Reddit. External `fetch()` calls are used exclusively server-side to read public market data feeds (`fypqhnwdczmsgwmvxidc.supabase.co`) and when moderators parse public document screenshots (`generativelanguage.googleapis.com`).
+   Zero Reddit user IDs, usernames, votes, predictions, or scorecard entries are ever sent outside Reddit. External `fetch()` calls are used exclusively server-side when moderators parse public document screenshots via Google Gemini (`generativelanguage.googleapis.com`). Public market schedules (`ipo_feed.json`) are imported manually by subreddit moderators inside `Mod Tools`.
 6. **Privacy Contact:**
    For privacy requests or questions, contact subreddit moderators via **r/IPO_India Modmail**.
