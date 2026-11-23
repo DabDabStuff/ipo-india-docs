@@ -48,9 +48,10 @@
 ---
 
 ## Fetch Domains
-The following domains are declared in `devvit.json` exclusively for server-side `GET` synchronization of public market schedules and optional moderator screenshot parsing (Devvit Redis has no native Indian exchange feed, and zero Reddit user IDs, usernames, comments, or PII ever leave Reddit):
-- `fypqhnwdczmsgwmvxidc.supabase.co` - Read-only static public JSON file in Supabase Storage (`GET /storage/v1/object/public/ipo-feed/ipo_feed.json`, updated via scheduled GitHub Action and synced into Devvit every 30 min Mon to Sat 08:30 to 23:00 IST + twice on Sunday for weekend GMP updates) containing public Indian IPO calendars, official NSE holiday dates, subscription multiples, and NSE EOD Bhavcopy quotes. **Not used as a user database; zero writes and zero user data sent.**
-- `generativelanguage.googleapis.com` - Globally allowlisted Google Gemini API used solely when a moderator runs `Mod Tools -> Screenshot Parser`.
+The following domain is declared in `devvit.json` exclusively for optional server-side moderator screenshot parsing (zero Reddit user IDs, usernames, comments, or PII ever leave Reddit):
+- `generativelanguage.googleapis.com` - Globally allowlisted Google Gemini API used solely when a moderator runs `Mod Tools -> Screenshot Parser` to extract structured public IPO subscription, Basis of Allotment, or Anchor figures into an editable draft.
+
+*(Public IPO schedules, GMP snapshots, subscription multiples, NSE holidays, and NSE EOD Bhavcopy quotes are loaded locally by moderators using the single-file `ipo_feed.json` uploader in `Mod Tools -> Backup & Audit Log` rather than polling unapproved external scrapers or cloud storage buckets from Devvit servers.)*
 
 ## Legal Documents & Support
 - Terms of Service: [`TERMS.md`](./TERMS.md)
